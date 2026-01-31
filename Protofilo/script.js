@@ -1,4 +1,12 @@
-document.querySelectorAll('.card,.project').forEach(e=>{
-e.onmouseenter=()=>e.style.boxShadow='0 0 20px rgba(56,189,248,.6)';
-e.onmouseleave=()=>e.style.boxShadow='none';
+const footer = document.getElementById("footer-text");
+const year = new Date().getFullYear();
+
+footer.innerHTML += ` © ${year}`;
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute("href"))
+      .scrollIntoView({ behavior: "smooth" });
+  });
 });
